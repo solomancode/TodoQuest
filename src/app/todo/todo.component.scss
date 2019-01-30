@@ -1,0 +1,220 @@
+$High      : #f43d3d;
+$Medium    : #f9f99e;
+$Low       : #47ea47;
+
+:host {
+  display: flex;
+  position: relative;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-top: 1px solid;
+  box-shadow: inset 0 1px 1px #000, 1px 1px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 5px 5px 2px 0;
+  margin: 10px 5px 10px 0;
+  max-width: 800px;
+}
+
+.select-todo {
+  cursor: pointer;
+  &::before {
+    content: '';
+    color: #fff;
+    width: 30px;
+    height: 20px;
+    border: 2px solid;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    border-radius: 4px 20px;
+  }
+
+  &.High::before {
+    border-color: $High;
+    background-color: #333;
+  }
+
+  &.Medium::before {
+    border-color: $Medium;
+    background-color: #333;
+  }
+
+  &.Low::before {
+    border-color: $Low;
+    background-color: #333;
+  }
+
+  input[type='checkbox'] {
+    visibility: hidden;
+    + .check {
+      position: absolute;
+      top: 7px;
+      right: -1px;
+      border-radius: 2px;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.priority {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 100px;
+  left: -3px;
+  height: 10px;
+  width: 100px;
+  display: inline-block;
+  transform-origin: left;
+  transform: rotate(-90deg);
+  padding: 3px 0;
+  border-radius: 20px 20px 2px 2px;
+  box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.2);
+  font-size: 10px;
+  font-weight: bold;
+  .priority-text {
+    text-transform: uppercase;
+    position: absolute;
+    left: 10px;
+  }
+
+  &.High {
+    color: #333;
+    background-color: $High;
+    input:checked + .check {
+      background-color: $High;
+      box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    + .todo {
+      background: linear-gradient(to bottom, rgba($High, .2), transparent);
+      border: 5px groove $High;
+      border-width: 5px 3px 2px 0;
+    }
+  }
+
+
+  &.Medium {
+    color: #333;
+    background-color: $Medium;
+    input:checked + .check {
+      background-color: $Medium;
+      box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    + .todo {
+      background: linear-gradient(to bottom, rgba($Medium, .2), transparent);
+      border: 5px groove $Medium;
+      border-width: 5px 3px 2px 0;
+    }
+  }
+
+
+  &.Low {
+    color: #333;
+    background-color: $Low;
+    input:checked + .check {
+      background-color: $Low;
+      box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    + .todo {
+      background: linear-gradient(to bottom, rgba($Low, .2), transparent);
+      border: 5px groove $Low;
+      border-width: 5px 3px 2px 0;
+    }
+  }
+
+}
+
+.todo-title {
+  color: #edf2fb;
+  font-size: 1.3em;
+  margin: 0;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.todo-description {
+  font-size: 0.85em;
+}
+
+.actions {
+  display: flex;
+}
+
+.action-btn {
+  cursor: pointer;
+  width: 80px;
+  height: 100px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-color: #000;
+  font-size: .8em;
+  text-align: center;
+  font-style: italic;
+  border-radius: 1px;
+  margin: 5px;
+  border: 2px double #222;
+  box-shadow: inset 1px 1px 1px #333, inset 0 -20px 50px rgba(255, 255, 255, 0.2), 1px 1px 2px #000;
+  &:hover .label-text {
+    color: #fff;
+  }
+  input {
+    display: none;
+  }
+  .label-text{
+    color: #ddd;
+    box-sizing: border-box;
+    padding-top: 5px;
+    display: block;
+    width: 100%;
+    height: 100px;
+    font-weight: bold;
+  }
+}
+
+.btn-completed {
+  background-image: url('/assets/victory.svg');
+  input:checked + .label-text{
+    background: linear-gradient(to left, gold, lime);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid;
+    box-shadow: 0 0 5px 2px #fff, 0 0 20px goldenrod;
+  }
+}
+
+.btn-cancelled {
+  background-image: url('/assets/zombie.svg');
+  input:checked + .label-text{
+    background: linear-gradient(to left, #ff0ab6, #f00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid;
+    box-shadow: 0 0 5px 2px #fff, 0 0 20px #ff3939;
+  }
+}
+
+.todo-date {
+  font-size: 0.8em;
+}
+
+.info {
+  cursor: pointer;
+  padding: 5px 10px;
+  max-height: 6em;
+  overflow: hidden;
+  transition: all .5s ease;
+}
+
+.info.open {
+  max-height: none;
+  overflow: hidden;
+}

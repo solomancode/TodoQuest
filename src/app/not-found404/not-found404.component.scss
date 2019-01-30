@@ -1,0 +1,17 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  justify-content: center;
+  color: rgb(131, 131, 131);
+  margin-top: -40px;
+  font-weight: normal;
+  line-height: 40px;
+  font-style: italic;
+  a {
+    font-style: normal;
+    font-weight: bold;
+    color: #fff;
+  }
+}

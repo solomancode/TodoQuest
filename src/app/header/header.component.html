@@ -1,0 +1,22 @@
+<section class="logo">
+  <a class="mark" [routerLink]="['/todos']">
+    <img src="/assets/wanted.svg" alt="Todo Quest">
+    <h1 class="logoText">
+        TodoQuest
+    </h1>
+  </a>
+  <section class="master-search">
+    <input #searchBox (keyup)="search($event)" type="text" placeholder="type a todo title or date...">
+    <nav *ngIf="suggestions.length" class="suggestions">
+      <a
+        class="suggestion"
+        (click)="clearSearch()"
+        *ngFor="let suggestion of suggestions"
+        [routerLink]="['/todos', suggestion.id]">
+        {{suggestion.title}}
+        <p class="date">{{suggestion.delivery_date | elapsed}}</p>
+      </a>
+    </nav>
+  </section>
+</section>
+<a [routerLink]="['/todos/new']" class="add-quest">+ <span class="text">New Todo</span></a>

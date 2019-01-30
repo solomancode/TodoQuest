@@ -1,0 +1,15 @@
+<article>
+  <header *ngIf="selected.length" class="list-header">
+    <span>Selected {{selected.length}}</span>
+    <section>
+      <button (click)="applyToAll(status.Completed)" class="action-btn completed">Completed</button>
+      <button (click)="applyToAll(status.Cancelled)" class="action-btn cancelled">Cancelled</button>
+    </section>
+  </header>
+  <app-todo
+    [todo]="todo"
+    [selected]="selected.indexOf(todo.id)!==-1"
+    (todoChange)="todoChange($event)"
+    *ngFor="let todo of todos">
+  </app-todo>
+</article>

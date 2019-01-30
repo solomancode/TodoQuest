@@ -1,0 +1,100 @@
+:host {
+  display: flex;
+  color: #c2cfeb;
+  background-color: #1a1f29;
+  height: 40px;
+  line-height: 40px;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0.5;
+  font-weight: bold;
+  .logoText {
+    color: rgba(255, 255, 255, 0.2);
+    margin: 2px 0 0 -15px;
+    font-style: italic;
+    font-size: 4em;
+  }
+  img {
+    height: 100%;
+  }
+}
+
+
+.add-quest {
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  font-size: 2em;
+  font-weight: bold;
+  border: 2px groove #333;
+  border-radius: 1px;
+  text-decoration: none;
+  padding: 0 10px;
+  .text {
+    font-size: 0.5em;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+  }
+}
+
+
+.master-search {
+  position: relative;
+  margin: 5px;
+  box-sizing: border-box;
+  flex-grow: 1;
+  min-width: 200px;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  input {
+    border: none;
+    background: #f8f8f8;
+    padding: 0 15px;
+    border-radius: 20px;
+    flex-grow: 1;
+    height: 30px;
+  }
+}
+
+.suggestions {
+  position: absolute;
+  top: 40px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid #7b7b7b;
+  box-shadow: 1px 1px 1px #000, 10px 10px 100px #0000005e;
+  .suggestion {
+    line-height: 20px;
+    padding: 5px 10px 8px 10px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #333;
+    border-bottom: 1px solid #464646;
+    min-width: 250px;
+    .date {
+      line-height: 10px;
+      margin: 0;
+      font-size: 0.7em;
+      color: #ddd;
+    }
+    &:hover {
+      color: gold;
+      background-color: #222;
+    }
+  }
+}
+
+.mark {
+  display: flex;
+  text-decoration: none;
+}

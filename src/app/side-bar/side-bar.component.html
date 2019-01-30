@@ -1,0 +1,13 @@
+<section class="side-bar">
+  <nav class="filter-tags">
+    <a
+      class="filter-btn"
+      routerLinkActive="active"
+      *ngFor="let filter of filters"
+      [routerLink]="todos"
+      [queryParams]="{ filter: filter.filter }">
+      {{filter.label}}
+    </a>
+  </nav>
+  <button hidden>Add Group</button>
+</section>

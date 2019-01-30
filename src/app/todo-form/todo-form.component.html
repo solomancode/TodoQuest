@@ -1,0 +1,37 @@
+<form #todoForm (submit)="onSubmit($event)" action="/todos/new">
+  <label for="title">
+    Title
+    <input [(ngModel)]="todo.title" type="text" id="title" name="title">
+  </label>
+  <label for="description">
+    Description
+    <textarea [(ngModel)]="todo.description" name="description" id="description" cols="30" rows="4"></textarea>
+  </label>
+  <section for="priority">
+    Priority
+    <fieldset class="priority">
+      <!-- High -->
+      <label [for]="priority[priority.High]">
+        <input type="radio" name="priority" [(ngModel)]="todo.priority" [id]="priority[priority.High]" [value]="priority.High">
+        {{priority[priority.High]}}
+      </label>
+
+      <!-- Medium -->
+      <label [for]="priority[priority.Medium]">
+        <input type="radio" name="priority" [(ngModel)]="todo.priority" [id]="priority[priority.Medium]" [value]="priority.Medium">
+        {{priority[priority.Medium]}}
+      </label>
+
+      <!-- Low -->
+      <label [for]="priority[priority.Low]">
+        <input type="radio" name="priority" [(ngModel)]="todo.priority" [id]="priority[priority.Low]" [value]="priority.Low">
+        {{priority[priority.Low]}}
+      </label>
+    </fieldset>
+  </section>
+  <label for="delivery_date">
+    Date
+    <input name="delivery_date" type="date" id="delivery_date" [(ngModel)]="todo.delivery_date">
+  </label>
+  <input type="submit" value="create new todo">
+</form>

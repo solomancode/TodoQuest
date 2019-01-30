@@ -1,0 +1,38 @@
+<section *ngIf="actAlert" class="action-alert">
+  {{actAlert}}
+</section>
+
+<label
+  [ngClass]="'select-todo priority ' + priority[todo.priority]"
+  for="{{'todo-' + todo.id}}">
+  <span class="priority-text">{{priority[todo.priority]}}</span>
+  <input [checked]="selected" (change)="toggleSelected()" type="checkbox" id="{{'todo-' + todo.id}}"/>
+  <span class="check"></span>
+</label>
+
+<section class="todo">
+  <article class="info {{open ? 'open':''}}" (click)="open = !open">
+    <h2 class="todo-title">{{todo.title}}</h2>
+    <span class="todo-date">{{todo.delivery_date | elapsed}}</span>
+    <p class="todo-description">{{todo.description}}</p>
+  </article>
+  <form class="actions" action="/todos">
+    <!-- COMPLETED -->
+    <label class="action-btn btn-completed" for="{{'completed-' + todo.id}}">
+        <input
+          [checked]="todo.status===status.Completed"
+          (change)="setCompleted()"
+          type="radio" value="{{status.Completed}}" id="{{'completed-' + todo.id}}" name="{{'todo-' + todo.id}}">
+        <span class="label-text">{{status[status.Completed]}}</span>
+      </label>
+
+      <!-- CANCELLED -->
+      <label class="action-btn btn-cancelled" for="{{'cancelled-' + todo.id}}">
+          <input
+            [checked]="todo.status===status.Cancelled"
+            (change)="setCancelled()"
+            type="radio" value="{{status.Cancelled}}" id="{{'cancelled-' + todo.id}}" name="{{'todo-' + todo.id}}">
+          <span class="label-text">{{status[status.Cancelled]}}</span>
+      </label>
+  </form>
+</section>

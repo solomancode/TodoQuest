@@ -1,0 +1,45 @@
+form {
+  display: grid;
+  grid-row-gap: 15px;
+  max-width: 450px;
+  margin: 30px auto 10px auto;
+}
+
+form > label{
+  display: grid;
+  grid-template-rows: 30px 1fr;
+}
+
+$input-bg: #383e4b;
+
+textarea, input {
+  padding: 10px;
+  color: #fff;
+  background-color: $input-bg;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.2em;
+}
+
+.priority {
+  border: none;
+  label{
+    cursor: pointer;
+    display: inline-block;
+    width: 33%;
+    padding: 10px 0;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+input[type='submit'] {
+  cursor: pointer;
+  padding: 10px;
+  color: #fff;
+  background-color: hsl(230, 40%, 2%);
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
